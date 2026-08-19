@@ -79,8 +79,8 @@ body {
   justify-content: center;
   padding: calc(24px + var(--safe-top)) 20px calc(24px + var(--safe-bottom));
   opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: scale(1.035);
+  transition: opacity 0.65s ease, transform 0.8s ease;
   pointer-events: none;
 }
 
@@ -107,7 +107,35 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.05);
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.scene.is-active .scene__bg img {
+  animation: cinematic-pan 2.5s ease-out both;
+}
+
+.scene.is-active.scene--reverse .scene__bg img {
+  animation-name: cinematic-pan-reverse;
+}
+
+.scene.is-active .scene__bg video {
+  animation: cinematic-video 4s ease-out both;
+}
+
+@keyframes cinematic-pan {
+  from { transform: scale(1.14) translate3d(-1.5%, -1%, 0); }
+  to { transform: scale(1.05) translate3d(1%, 0.5%, 0); }
+}
+
+@keyframes cinematic-pan-reverse {
+  from { transform: scale(1.14) translate3d(1.5%, -0.5%, 0); }
+  to { transform: scale(1.05) translate3d(-1%, 0.5%, 0); }
+}
+
+@keyframes cinematic-video {
+  from { transform: scale(1.09); }
+  to { transform: scale(1.03); }
 }
 
 .scene__bg--nostalgia img {
@@ -171,12 +199,11 @@ body {
 .tag {
   display: inline-block;
   margin-bottom: 12px;
-  padding: 6px 14px;
-  border: 1px solid rgba(201, 162, 39, 0.45);
-  color: var(--gold);
+  color: rgba(245, 240, 232, 0.75);
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  letter-spacing: 0.45em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
 }
 
 .hint {

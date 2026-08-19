@@ -2,12 +2,9 @@
   "use strict";
 
   const stage = document.getElementById("stage");
-  const progressEl = document.getElementById("progress");
-  const progressBar = document.getElementById("progress-bar");
 
   let story = null;
   let sceneIndex = 0;
-  let montageItemIndex = 0;
   let activeSceneEl = null;
   let transitioning = false;
 
@@ -69,13 +66,6 @@
     return btn;
   }
 
-  function updateProgress() {
-    if (!story || !story.scenes.length) return;
-    progressEl.hidden = sceneIndex <= 0;
-    const pct = Math.min(100, (sceneIndex / (story.scenes.length - 1)) * 100);
-    progressBar.style.width = pct + "%";
-  }
-
   function goNext(delay) {
     if (transitioning) return;
     const wait = typeof delay === "number" ? delay : 0;
@@ -101,12 +91,12 @@
 
   function mountScene(renderFn) {
     exitThen(() => {
-      const el = h("div", "scene");
+      const direction = sceneIndex % 2 === 0 ? "" : " scene--reverse";
+      const el = h("div", "scene" + direction);
       renderFn(el);
       stage.appendChild(el);
       requestAnimationFrame(() => el.classList.add("is-active"));
       activeSceneEl = el;
-      updateProgress();
     });
   }
 
@@ -123,13 +113,13 @@
     });
   }
 
-  function renderTitle() {
+  function renderTitle(scene) {
     mountScene((el) => {
       const content = h("div", "scene__content title-glitch");
       content.appendChild(h("p", "display-xl line-1", story.meta.title));
       content.appendChild(h("p", "display-lg line-2", story.meta.name.toUpperCase()));
       el.appendChild(content);
-      setTimeout(() => goNext(), 2600);
+      setTimeout(() => goNext(), scene.duration || 2600);
     });
   }
 
@@ -138,8 +128,8 @@
       mediaBg(el, scene.image, scene.filter, labelFromPath(scene.image));
       const content = h("div", "scene__content");
       if (scene.tag) content.appendChild(h("span", "tag", scene.tag));
-      content.appendChild(nextButton("NEXT ›", () => goNext()));
       el.appendChild(content);
+      setTimeout(() => goNext(), scene.duration || 1900);
     });
   }
 
@@ -153,8 +143,8 @@
   }
 
   function renderMontage(scene) {
-    montageItemIndex = 0;
     const items = scene.items || [];
+    const itemDuration = scene.itemDuration || 1900;
 
     function showItem(el, idx) {
       const item = items[idx];
@@ -173,43 +163,10 @@
         mediaBg(el, item.src, "none", labelFromPath(item.src));
       }
 
-      if (idx < items.length - 1) {
-        el.appendChild(h("div", "swipe-hint", scene.hint || "SWIPE UP"));
-      } else {
-        const hint = h("div", "scene__content");
-        hint.style.position = "absolute";
-        hint.style.bottom = "calc(40px + env(safe-area-inset-bottom))";
-        hint.style.width = "100%";
-        hint.appendChild(nextButton("WEITER ›", () => goNext()));
-        el.appendChild(hint);
-      }
+      setTimeout(() => showItem(el, idx + 1), itemDuration);
     }
 
     mountScene((el) => {
-      let touchStartY = 0;
-
-      function onSwipeUp() {
-        montageItemIndex += 1;
-        if (montageItemIndex >= items.length) {
-          goNext();
-        } else {
-          showItem(el, montageItemIndex);
-        }
-      }
-
-      el.addEventListener("touchstart", (e) => {
-        touchStartY = e.changedTouches[0].clientY;
-      }, { passive: true });
-
-      el.addEventListener("touchend", (e) => {
-        const delta = touchStartY - e.changedTouches[0].clientY;
-        if (delta > 50) onSwipeUp();
-      }, { passive: true });
-
-      el.addEventListener("wheel", (e) => {
-        if (e.deltaY < -10) onSwipeUp();
-      }, { passive: true });
-
       showItem(el, 0);
     });
   }
@@ -218,12 +175,9 @@
     mountScene((el) => {
       const content = h("div", "scene__content");
       content.appendChild(h("p", "display-md", scene.line));
-      const btn = h("button", "btn-word", scene.word);
-      btn.type = "button";
-      btn.addEventListener("click", () => goNext());
-      content.appendChild(btn);
-      content.appendChild(h("p", "hint", scene.subline || "TAP"));
+      content.appendChild(h("p", "btn-word", scene.word));
       el.appendChild(content);
+      setTimeout(() => goNext(), scene.duration || 1800);
     });
   }
 
@@ -231,7 +185,7 @@
     mountScene((el) => {
       BDayAudio.boost();
       const content = h("div", "scene__content");
-      content.appendChild(h("p", "display-md", scene.text || "BEREIT?"));
+      if (scene.text) content.appendChild(h("p", "display-md", scene.text));
       const numEl = h("p", "countdown-num", String(scene.from || 3));
       content.appendChild(numEl);
       el.appendChild(content);
@@ -401,7 +355,7 @@
   function renderScene(scene) {
     switch (scene.type) {
       case "tap-start": renderTapStart(scene); break;
-      case "title": renderTitle(); break;
+      case "title": renderTitle(scene); break;
       case "photo": renderPhoto(scene); break;
       case "chapter": renderChapter(scene); break;
       case "montage": renderMontage(scene); break;

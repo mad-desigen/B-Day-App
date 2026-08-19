@@ -1,6 +1,6 @@
 # LEVEL 18 — Savelii
 
-Episches, interaktives Geburtstags-Intro (~4–5 Min) für iPhone per QR-Code.
+Kurze, filmische Geburtstagsanimation (~30 Sek.) für iPhone per QR-Code.
 
 **Live (nach GitHub Pages):** `https://mad-desigen.github.io/B-Day-App/`
 
@@ -9,10 +9,9 @@ Episches, interaktives Geburtstags-Intro (~4–5 Min) für iPhone per QR-Code.
 ## Ablauf für Savelii
 
 1. QR-Code scannen → App öffnet im Browser  
-2. **„SOUND AN — LET'S GO“** tippen (startet Deep-Rap-Beat)  
-3. Fotos, Swipe-Montage, Tap-Momente, Countdown  
-4. **2 Sek. halten** → Power Unlock  
-5. **18-Drop** + persönlicher Brief  
+2. **„FILM STARTEN“** tippen (startet den Ton)  
+3. Die filmische Foto- und Videomontage läuft automatisch durch  
+4. **18-Drop** + kurze persönliche Botschaft  
 
 ---
 
@@ -107,11 +106,8 @@ B-Day-App/
 
 ## Interaktionen
 
-| Geste | Wo |
-|-------|-----|
-| **Tap** | Start, NEXT, Wort „STARK“ |
-| **Swipe up** | Montage-Clips |
-| **2 s halten** | Power Unlock vor dem Finale |
+Nur der Start braucht einen Tap, weil iPhones Ton erst nach einer bewussten
+Berührung abspielen dürfen. Danach läuft die Animation ohne weitere Eingabe.
 
 ---
 

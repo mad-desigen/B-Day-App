@@ -13,8 +13,8 @@
     {
       "id": "start",
       "type": "tap-start",
-      "label": "SOUND AN — LET'S GO",
-      "hint": "Tap · Kopfhörer empfohlen"
+      "label": "FILM STARTEN",
+      "hint": "Ton an"
     },
     {
       "id": "title",
@@ -26,28 +26,32 @@
       "type": "photo",
       "image": "assets/images/origin/origin-01.svg",
       "tag": "ORIGIN",
-      "filter": "nostalgia"
+      "filter": "nostalgia",
+      "duration": 1800
     },
     {
       "id": "origin-2",
       "type": "photo",
       "image": "assets/images/origin/origin-02.svg",
       "tag": "ORIGIN",
-      "filter": "nostalgia"
+      "filter": "nostalgia",
+      "duration": 1800
     },
     {
       "id": "origin-3",
       "type": "photo",
       "image": "assets/images/origin/origin-03.svg",
       "tag": "ORIGIN",
-      "filter": "nostalgia"
+      "filter": "nostalgia",
+      "duration": 1800
     },
     {
       "id": "origin-4",
       "type": "photo",
       "image": "assets/images/origin/origin-04.svg",
       "tag": "ORIGIN",
-      "filter": "nostalgia"
+      "filter": "nostalgia",
+      "duration": 1800
     },
     {
       "id": "chapter-damals",
@@ -62,7 +66,7 @@
         { "kind": "video", "src": "assets/videos/clip-01.mp4" },
         { "kind": "image", "src": "assets/images/present/present-01.svg" }
       ],
-      "hint": "SWIPE UP"
+      "itemDuration": 1800
     },
     {
       "id": "montage-2",
@@ -71,7 +75,7 @@
         { "kind": "video", "src": "assets/videos/clip-02.mp4" },
         { "kind": "image", "src": "assets/images/present/present-02.svg" }
       ],
-      "hint": "SWIPE UP"
+      "itemDuration": 1800
     },
     {
       "id": "montage-3",
@@ -80,34 +84,20 @@
         { "kind": "video", "src": "assets/videos/clip-03.mp4" },
         { "kind": "image", "src": "assets/images/present/present-03.svg" }
       ],
-      "hint": "SWIPE UP"
-    },
-    {
-      "id": "text-hit",
-      "type": "text-hit",
-      "line": "DU WARST SCHON IMMER",
-      "word": "STARK",
-      "subline": "TAP"
+      "itemDuration": 1800
     },
     {
       "id": "present-1",
       "type": "photo",
       "image": "assets/images/present/present-04.svg",
       "tag": "HEUTE",
-      "filter": "none"
+      "filter": "none",
+      "duration": 2000
     },
     {
       "id": "countdown",
       "type": "countdown",
-      "text": "BEREIT?",
       "from": 3
-    },
-    {
-      "id": "hold",
-      "type": "hold",
-      "label": "2 SEK. HALTEN",
-      "ms": 2000,
-      "success": "POWER UNLOCKED"
     },
     {
       "id": "flash",
@@ -135,21 +125,14 @@
         "",
         "Savelii.",
         "",
-        "Nicht mehr Kind.",
-        "Nicht fertig — aber auf deinem Level.",
-        "",
-        "Du hast Wege gemacht, die andere nicht sehen.",
-        "Manche Tage waren leise. Manche laut.",
-        "Beides hat dich hierher gebracht.",
-        "",
-        "Das hier ist kein Ende.",
-        "Das ist dein Unlock."
+        "Dein Weg. Deine Geschichte.",
+        "Und das Beste kommt noch."
       ]
     },
     {
       "id": "end",
       "type": "end",
-      "text": "WILLKOMMEN IM NÄCHSTEN LEVEL.",
+      "text": "ALLES GUTE.",
       "symbol": "♦"
     }
   ]
