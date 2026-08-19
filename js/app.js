@@ -373,7 +373,7 @@
 
   async function init() {
     try {
-      const res = await fetch("data/story.json");
+      const res = await fetch("data/story.json?v=20260819-2");
       story = await res.json();
     } catch (e) {
       stage.innerHTML = "<p style='padding:2rem;text-align:center'>story.json konnte nicht geladen werden.</p>";
