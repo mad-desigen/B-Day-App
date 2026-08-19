@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "name": "Savelii",
+    "title": "LEVEL 18",
+    "subtitle": "UNLOCKED",
+    "signature": ""
+  },
+  "audio": {
+    "beat": "assets/audio/beat.mp3",
+    "volume": 0.55
+  },
+  "scenes": [
+    {
+      "id": "start",
+      "type": "tap-start",
+      "label": "SOUND AN — LET'S GO",
+      "hint": "Tap · Kopfhörer empfohlen"
+    },
+    {
+      "id": "title",
+      "type": "title",
+      "duration": 2800
+    },
+    {
+      "id": "origin-1",
+      "type": "photo",
+      "image": "assets/images/origin/origin-01.svg",
+      "tag": "ORIGIN",
+      "filter": "nostalgia"
+    },
+    {
+      "id": "origin-2",
+      "type": "photo",
+      "image": "assets/images/origin/origin-02.svg",
+      "tag": "ORIGIN",
+      "filter": "nostalgia"
+    },
+    {
+      "id": "origin-3",
+      "type": "photo",
+      "image": "assets/images/origin/origin-03.svg",
+      "tag": "ORIGIN",
+      "filter": "nostalgia"
+    },
+    {
+      "id": "origin-4",
+      "type": "photo",
+      "image": "assets/images/origin/origin-04.svg",
+      "tag": "ORIGIN",
+      "filter": "nostalgia"
+    },
+    {
+      "id": "chapter-damals",
+      "type": "chapter",
+      "text": "DAMALS.",
+      "duration": 900
+    },
+    {
+      "id": "montage-1",
+      "type": "montage",
+      "items": [
+        { "kind": "video", "src": "assets/videos/clip-01.mp4" },
+        { "kind": "image", "src": "assets/images/present/present-01.svg" }
+      ],
+      "hint": "SWIPE UP"
+    },
+    {
+      "id": "montage-2",
+      "type": "montage",
+      "items": [
+        { "kind": "video", "src": "assets/videos/clip-02.mp4" },
+        { "kind": "image", "src": "assets/images/present/present-02.svg" }
+      ],
+      "hint": "SWIPE UP"
+    },
+    {
+      "id": "montage-3",
+      "type": "montage",
+      "items": [
+        { "kind": "video", "src": "assets/videos/clip-03.mp4" },
+        { "kind": "image", "src": "assets/images/present/present-03.svg" }
+      ],
+      "hint": "SWIPE UP"
+    },
+    {
+      "id": "text-hit",
+      "type": "text-hit",
+      "line": "DU WARST SCHON IMMER",
+      "word": "STARK",
+      "subline": "TAP"
+    },
+    {
+      "id": "present-1",
+      "type": "photo",
+      "image": "assets/images/present/present-04.svg",
+      "tag": "HEUTE",
+      "filter": "none"
+    },
+    {
+      "id": "countdown",
+      "type": "countdown",
+      "text": "BEREIT?",
+      "from": 3
+    },
+    {
+      "id": "hold",
+      "type": "hold",
+      "label": "2 SEK. HALTEN",
+      "ms": 2000,
+      "success": "POWER UNLOCKED"
+    },
+    {
+      "id": "flash",
+      "type": "flash",
+      "images": [
+        "assets/images/origin/origin-01.svg",
+        "assets/images/origin/origin-02.svg",
+        "assets/images/present/present-01.svg",
+        "assets/images/present/present-02.svg",
+        "assets/images/present/present-03.svg",
+        "assets/images/present/present-04.svg"
+      ],
+      "intervalMs": 280
+    },
+    {
+      "id": "drop",
+      "type": "drop",
+      "number": "18"
+    },
+    {
+      "id": "letter",
+      "type": "letter",
+      "lines": [
+        "18.",
+        "",
+        "Savelii.",
+        "",
+        "Nicht mehr Kind.",
+        "Nicht fertig — aber auf deinem Level.",
+        "",
+        "Du hast Wege gemacht, die andere nicht sehen.",
+        "Manche Tage waren leise. Manche laut.",
+        "Beides hat dich hierher gebracht.",
+        "",
+        "Das hier ist kein Ende.",
+        "Das ist dein Unlock."
+      ]
+    },
+    {
+      "id": "end",
+      "type": "end",
+      "text": "WILLKOMMEN IM NÄCHSTEN LEVEL.",
+      "symbol": "♦"
+    }
+  ]
+}
